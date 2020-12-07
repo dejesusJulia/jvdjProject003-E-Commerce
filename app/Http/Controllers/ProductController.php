@@ -10,12 +10,18 @@ class ProductController extends Controller
         // show all PRODUCTS (CLIENT SIDE)
     }
 
+    public function indexSingle(){
+        // show single PRODUCT (CLIENT SIDE)
+    }
+
     public function show(){
         // show all PRODUCTS (SERVER SIDE)
+        return view('manager.products');
     }
 
     public function showSingle(){
-        // show single PRODUCT (CLIENT SIDE)
+        // show single PRODUCT (SERVER SIDE)
+        return view('manager.product-view');
     }
 
     public function store(){
@@ -24,6 +30,7 @@ class ProductController extends Controller
 
     public function edit(){
         // return view with variables to edit PRODUCT (SERVER SIDE)
+        return view('manager.product-update');
     }
 
     public function update(){

@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 class ProductTypeController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     public function index(){
         // show all PRODUCT TYPES
+        return view('admin.product-types');
     }
 
     public function show(){
@@ -20,6 +26,7 @@ class ProductTypeController extends Controller
 
     public function edit(){
         // return view with variables to be edited
+        return view('admin.product-type-update');
     }
 
     public function update(){

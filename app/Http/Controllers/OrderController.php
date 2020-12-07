@@ -12,6 +12,7 @@ class OrderController extends Controller
 
     public function show(){
         // show all ORDERS (SERVER SIDE)
+        return view('manager.orders');
     }
 
     public function showSingle(){
@@ -26,7 +27,12 @@ class OrderController extends Controller
         // update ORDER checkout status (CLIENT SIDE)
     }
 
-    public function complete(){
+    public function editOrder(){
+        // return view of ORDER to be edited (SERVER SIDE)
+        return view('manager.order-update');
+    }
+
+    public function updateOrder(){
         // update ORDER completion status (SERVER SIDE)
     }
 

@@ -10,12 +10,20 @@ class UserController extends Controller
         // code
     }
 
+    public function show(){
+        return view('admin.users');
+    }
+
     public function editProfile(){
         // return view with variables to be edited
     }
 
     public function updateProfile(){
         // update user profile
+    }
+
+    public function editRole(){
+        return view('admin.user-update');
     }
 
     public function updateRole(){
