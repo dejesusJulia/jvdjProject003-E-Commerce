@@ -2,10 +2,48 @@
 
 @section('content')
     <div class="container">
-        <ul>
-            <li>User one</li>
-            <li>User two</li>
-            <li>User three</li>
-        </ul>
+        <div class="col-8 offset-2">
+            <x-alert/>
+            <table class="table table-striped">
+                <thead>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">NAME</th>
+                    <th class="text-center">EMAIL</th>
+                    <th class="text-center">ROLE</th>
+                    <th></th>
+                </thead>
+    
+                <tbody>
+                    @foreach ($users as $user)
+                    <tr>
+                        <td class="text-center">{{$user->id}}</td>
+                        <td class="text-center">{{$user->name}}</td>
+                        <td class="text-center">{{$user->email}}</td>
+                        <td class="text-center">{{$user->user_role}}</td>
+                        
+                        @if (Auth::user()->id !== $user->id)
+                            <td class="d-flex justify-content-center">
+                                <a href="{{route('admin.useredit', $user->id)}}" class="mx-1">Edit</a>
+
+                            <button class="mx-1 btn btn-danger" onclick="event.preventDefault();
+                            if(confirm('Do you want to delete {{$user->email}}?')){document.getElementById('user-del-{{$user->id}}').submit()
+                            }">Del</button>
+
+                            <form id="user-del-{{$user->id}}" action="{{route('admin.userdelete', $user->id)}}" method="post" style="display:none;">
+                                @csrf
+                                @method('delete')
+                            </form>
+                            </td> 
+                        @else
+                        <td class="text-center">
+                            <a href="{{route('user.profile', $user->id)}}">Update profile</a>
+                        </td>
+                        @endif
+                        
+                    </tr>
+                    @endforeach       
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

@@ -21,12 +21,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+
+    public function index(){
+        return view('welcome');
+    }
+
+    public function indexUser()
     {
         return view('home');
     }
 
     public function indexAdmin(){
+        // session(['key' => 'value']);
+        // $value = session('key');
         return view('admin.dashboard');
     }
 

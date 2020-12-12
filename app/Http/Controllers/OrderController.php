@@ -8,6 +8,7 @@ class OrderController extends Controller
 {
     public function index(){
         // show all ORDERS (CLIENT SIDE)
+        return view('user.user-orders');
     }
 
     public function show(){

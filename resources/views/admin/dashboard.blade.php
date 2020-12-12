@@ -2,11 +2,13 @@
 
 @section('content')
     <div class="container">
+        <x-alert/>
         <div class="card">
             <div class="card-body">
                 <h1>Welcome, admin!</h1>
             </div>
         </div>
+
 
         <h3>Temporary nav</h3>
         <ul>
@@ -21,8 +23,13 @@
             <li>
                 <a href="{{url('/')}}">Landing page</a>
             </li>
+
+            <li>
+                <a href="{{route('admin.profile', Auth::user()->id)}}">{{Auth::user()->id}}</a>
+            </li>
         </ul>
         
+       
     </div>
     
 @endsection
