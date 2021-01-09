@@ -23,11 +23,15 @@
                         
                         @if (Auth::user()->id !== $user->id)
                             <td class="d-flex justify-content-center">
-                                <a href="{{route('admin.useredit', $user->id)}}" class="mx-1">Edit</a>
+                                <a href="{{route('admin.profile', $user->id)}}" class="mx-1">
+                                    <i class="fas fa-cog"></i>
+                                </a>
 
                             <button class="mx-1 btn btn-danger" onclick="event.preventDefault();
                             if(confirm('Do you want to delete {{$user->email}}?')){document.getElementById('user-del-{{$user->id}}').submit()
-                            }">Del</button>
+                            }">
+                                <i class="fas fa-times"></i>
+                            </button>
 
                             <form id="user-del-{{$user->id}}" action="{{route('admin.userdelete', $user->id)}}" method="post" style="display:none;">
                                 @csrf
@@ -36,7 +40,7 @@
                             </td> 
                         @else
                         <td class="text-center">
-                            <a href="{{route('user.profile', $user->id)}}">Update profile</a>
+                            <a href="{{route('admin.profile', $user->id)}}">Update profile</a>
                         </td>
                         @endif
                         

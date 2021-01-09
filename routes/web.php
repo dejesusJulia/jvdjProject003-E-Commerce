@@ -38,10 +38,20 @@ Route::group(['middleware' => ['auth', 'manager']], function(){
     Route::get('/manager/order-update', 'OrderController@editOrder')->name('manager.orderedit');
 
     Route::get('/manager/products', 'ProductController@show')->name('manager.products');
-    Route::get('/manager/product-view', 'ProductController@showSingle')->name('manager.productview');
-    Route::get('/manager/product-update', 'ProductController@edit')->name('manager.productedit');
-    
 
+    Route::get('/manager/product-add', 'ProductController@create')->name('manager.productadd')
+    ;
+    Route::get('/manager/product-add', 'ProductTypeController@addSelectType')->name('manager.producttypeadd');
+
+    Route::post('/manager/product-add', 'ProductController@store')->name('manager.productstore');
+
+    Route::get('/manager/product-view', 'ProductController@showSingle')->name('manager.productview');
+
+    Route::get('/manager/product-update/{product}', 'ProductController@edit')->name('manager.productedit');
+    Route::patch('/manager/product-update/{product}', 'ProductController@update')->name('manager.productupdate');
+    
+    Route::delete('/manager/product-delete/{product}', 'ProductController@destroy')->name('manager.deleteproduct');
+    
 });
 
 // ADMIN (SERVER)

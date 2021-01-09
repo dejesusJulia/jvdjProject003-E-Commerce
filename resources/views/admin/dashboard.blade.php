@@ -25,7 +25,7 @@
             </li>
 
             <li>
-                <a href="{{route('admin.profile', Auth::user()->id)}}">{{Auth::user()->id}}</a>
+                <a href="{{route('admin.profile', Auth::user()->id)}}">Edit profile</a>
             </li>
         </ul>
         

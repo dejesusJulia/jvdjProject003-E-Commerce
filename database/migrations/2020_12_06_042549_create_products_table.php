@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->string('product_img');
             $table->foreignId('product_type_id')->constrained('product_types');
-            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

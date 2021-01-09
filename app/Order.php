@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $table = 'orders';
+
     protected $fillable = [
         'user_id', 'product_id', 'quantity', 'price', 'checkout', 'completed'
     ];
 
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'user_id');
     }
 
     public function products(){

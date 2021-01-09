@@ -69,6 +69,13 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        {{-- @if (Auth::user()->user_role === 'admin')
+                           <a href="{{route(admin.home)}}">Home</a> 
+                        @elseif(Auth::user()->user_role === 'manager')
+                            <a href="{{route(manager.home)}}">Home</a>
+                        @elseif(Auth::user()->user_role === 'user')
+                            <a href="{{route(user.home)}}">Home</a>
+                        @endif --}}
                     @else
                         <a href="{{ route('login') }}">Login</a>
 

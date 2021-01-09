@@ -6,7 +6,9 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-space-between">
                     <h3 class="mr-auto">Profile</h3>
-                    <a href="/{{$user->user_role}}">&leftarrow;</a>
+                    <a href="{{route('admin.home')}}">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
                 </div>
 
                 <div class="card-body">

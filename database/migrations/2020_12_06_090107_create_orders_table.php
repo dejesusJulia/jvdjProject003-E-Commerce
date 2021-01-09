@@ -17,10 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('product_id')->constrained('products');
-            $table->integer('quantity')->default(1);
-            $table->string('price');
-            $table->boolean('checkout')->default(false);
-            $table->boolean('completed')->default(false);
+            $table->string('status');
+            $table->string('payment_method');
+            $table->string('payment_status');
             $table->timestamps();
         });
     }

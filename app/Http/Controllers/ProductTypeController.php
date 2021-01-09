@@ -22,6 +22,12 @@ class ProductTypeController extends Controller
         // show one PRODUCT TYPE and all its PRODUCTS
     }
 
+    public function addSelectType(){
+        // get all product types for Manager page
+        $productTypes = ProductType::all();
+        return view('manager.product-add', compact('productTypes'));
+    }
+
     public function store(Request $request){
         // create PRODUCT TYPE
         ProductType::create($request->all());

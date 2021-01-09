@@ -6,15 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = 'products';
+
     protected $fillable = [
-        'name', 'description', 'price', 'product_img', 'product_type_id', 'slug'
+        'name', 'description', 'price', 'product_img', 'product_type_id'
     ];
 
-    public function productTypes(){
-        return $this->belongsTo(ProductType::class);
+    public function product_types(){
+        return $this->belongsTo(ProductType::class, 'product_type_id');
     }
 
     public function orders(){
         return $this->hasMany(Order::class);
     }
+
 }
